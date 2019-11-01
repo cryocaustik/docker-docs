@@ -1,0 +1,25 @@
+site_name: Material Dark
+
+theme:
+  name: material
+  palette:
+    accent: "indigo"
+
+markdown_extensions:
+  - markdown.extensions.admonition
+  - codehilite:
+      guess_lang: False
+      use_pygments: True
+      noclasses: True
+      pygments_style: monokai
+
+extra_css:
+  - "css/material-dark.css"
+
+nav:
+  - Introduction: index.md
+  - Project Structure: project_structure.md
+  - Dockerfile: dockerfile.md
+  - Docker Compose: docker_compose.md
+  - Docker Ignore: dockerignore.md
+  - Env File: env_file.md
