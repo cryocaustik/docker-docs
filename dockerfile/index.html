@@ -1,0 +1,582 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+    
+    
+      
+        <title>Dockerfile - Docker Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.0284f74d.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.01803549.css">
+      
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../css/material-dark.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#dockerfile" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="Docker Docs" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Docker Docs
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Dockerfile
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href=".." title="Docker Docs" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Docker Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../project_structure/" title="Project Structure" class="md-nav__link">
+      Project Structure
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Dockerfile
+      </label>
+    
+    <a href="./" title="Dockerfile" class="md-nav__link md-nav__link--active">
+      Dockerfile
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#keywords" title="Keywords" class="md-nav__link">
+    Keywords
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#from" title="FROM" class="md-nav__link">
+    FROM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run" title="RUN" class="md-nav__link">
+    RUN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workdir" title="WORKDIR" class="md-nav__link">
+    WORKDIR
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy" title="COPY" class="md-nav__link">
+    COPY
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expose" title="EXPOSE" class="md-nav__link">
+    EXPOSE
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#completed-example" title="Completed Example" class="md-nav__link">
+    Completed Example
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../docker_compose/" title="Docker Compose" class="md-nav__link">
+      Docker Compose
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../dockerignore/" title="Docker Ignore" class="md-nav__link">
+      Docker Ignore
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../env_file/" title="Env File" class="md-nav__link">
+      Env File
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#keywords" title="Keywords" class="md-nav__link">
+    Keywords
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#from" title="FROM" class="md-nav__link">
+    FROM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run" title="RUN" class="md-nav__link">
+    RUN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workdir" title="WORKDIR" class="md-nav__link">
+    WORKDIR
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy" title="COPY" class="md-nav__link">
+    COPY
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expose" title="EXPOSE" class="md-nav__link">
+    EXPOSE
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#completed-example" title="Completed Example" class="md-nav__link">
+    Completed Example
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="dockerfile">Dockerfile</h1>
+<p>Dockerfile is the core configuration file used to define custom built images/containers.</p>
+<p>If your stack is using pre-built images only (e.g. MySQL, node, etc.), then you would not need this file.</p>
+<p>However, if you're looking to run a Node server with your custom code, we would need to build a new image, mixing our code onto an existing Node image, and running that in a container.</p>
+<h2 id="keywords">Keywords</h2>
+<p>Below we will talk about the sections of a Dockerfile and how to use them.</p>
+<h3 id="from">FROM</h3>
+<div class="admonition warning">
+<p class="admonition-title">Use Trusted Sources Only</p>
+<p>Core images should only be used from official sources such as <a href="https://hub.docker.com/">Dockerhub</a>, as images will contain base code that will run in your container.</p>
+</div>
+<p>The first line of any Dockerfile should always define the core image we're starting from.</p>
+<p>Using an all caps <code>FROM</code> keyword, we can then specify the image, version, and variant, separating the image name and version/type with a semi-colo (<code>:</code>).</p>
+<p>Available image versions and variants should always be defined on the Image page of Dockerhub.</p>
+<p>Example: For a Node application, we would use a <strong><a href="https://hub.docker.com/_/node">node:lts</a></strong> command to pull the latest LTS version of the Node image.</p>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #66d9ef">FROM</span><span style="color: #e6db74"> &quot;node:lts&quot;</span>
+</pre></div>
+
+
+<h3 id="run">RUN</h3>
+<p>The run command is used to define shell commands that should be executed at the time of compiling/building our custom image.</p>
+<p>These commands are typically used to:</p>
+<ul>
+<li>Adding missing/custom repositories for APT</li>
+<li>Install missing dependencies (e.g. missing mysql driver)</li>
+<li>Creating custom directories</li>
+</ul>
+<p>Example: if we wanted to create a custom directory for our application source code and run an APT update/upgrade to ensure the core image is up to date, we would use:</p>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #66d9ef">RUN</span> mkdir /code
+<span style="color: #66d9ef">RUN</span> apt update <span style="color: #f92672">&amp;&amp;</span> apt upgrade -y
+</pre></div>
+
+
+<h3 id="workdir">WORKDIR</h3>
+<p>The workdir keyword allows us to specify where our source code will live and most importantly, where to run our commands from, within the image.</p>
+<p>It is important to ensure our workdir directory exists before we specify this keyword, as the process will attempt to find and link to it.</p>
+<p>Example: If I wanted to define my wordir as <code>/code</code>, I would use:</p>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #66d9ef">RUN</span> mkdir /code
+<span style="color: #66d9ef">WORKDIR</span><span style="color: #e6db74"> /code</span>
+</pre></div>
+
+
+<h3 id="copy">COPY</h3>
+<p>The copy command is used to copy files/directories into the image.</p>
+<p>Copying files into the image at compile, can be very helpful in setting up environments and installing pre-requisites that do not need to be ran every time a container is started.</p>
+<p>Example: If we wanted to copy our package.json config into the image and install the required Node packages, we would use:</p>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #66d9ef">COPY</span> package.json /code/
+<span style="color: #66d9ef">RUN</span> yarn install
+</pre></div>
+
+
+<h3 id="expose">EXPOSE</h3>
+<div class="admonition info">
+<p class="admonition-title">Expose Not used when using Docker Compose</p>
+<p>While the expose command can be used to expose ports in the container, it is typically not used when a stack is defined using docker-compose.yml, as it compose will have it's own mapping that is better defined.</p>
+</div>
+<p>The expose command can be used to expose container ports to the local environments.</p>
+<p>Example: if we wanted to expose port 8000 to our local machine, we would use:</p>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #66d9ef">EXPOSE</span><span style="color: #e6db74"> 8000</span>
+</pre></div>
+
+
+<h2 id="completed-example">Completed Example</h2>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #75715e"># define core image:version/variant</span>
+<span style="color: #66d9ef">FROM</span><span style="color: #e6db74"> &quot;node:lts-alpine&quot;</span>
+
+<span style="color: #75715e"># make our source code directory</span>
+<span style="color: #66d9ef">RUN</span> mkdir /code
+
+<span style="color: #75715e"># define our source code directory as the root for commands</span>
+<span style="color: #66d9ef">WORKDIR</span><span style="color: #e6db74"> /code</span>
+
+<span style="color: #75715e"># copy our package.json config into the image</span>
+<span style="color: #66d9ef">COPY</span> package.json /code/
+
+<span style="color: #75715e"># install our node package dependencies</span>
+<span style="color: #66d9ef">RUN</span> yarn install
+
+<span style="color: #75715e"># perform an initial copy of our source code into the image</span>
+<span style="color: #66d9ef">COPY</span> ./src /code/
+
+<span style="color: #75715e"># production use: build our node source code</span>
+<span style="color: #66d9ef">RUN</span> yarn build
+</pre></div>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../project_structure/" title="Project Structure" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Project Structure
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../docker_compose/" title="Docker Compose" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Docker Compose
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.245445c6.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+    
+  </body>
+</html>

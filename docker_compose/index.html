@@ -1,0 +1,756 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+    
+    
+      
+        <title>Docker Compose - Docker Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.0284f74d.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.01803549.css">
+      
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../css/material-dark.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#docker-compose" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="Docker Docs" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Docker Docs
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Docker Compose
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href=".." title="Docker Docs" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Docker Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../project_structure/" title="Project Structure" class="md-nav__link">
+      Project Structure
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../dockerfile/" title="Dockerfile" class="md-nav__link">
+      Dockerfile
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Docker Compose
+      </label>
+    
+    <a href="./" title="Docker Compose" class="md-nav__link md-nav__link--active">
+      Docker Compose
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#file-naming" title="File Naming" class="md-nav__link">
+    File Naming
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version" title="Version" class="md-nav__link">
+    Version
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#services" title="Services" class="md-nav__link">
+    Services
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#volumes" title="Volumes" class="md-nav__link">
+    Volumes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#simple-volumes" title="Simple Volumes" class="md-nav__link">
+    Simple Volumes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#persistent-volumes" title="Persistent Volumes" class="md-nav__link">
+    Persistent Volumes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#networks" title="Networks" class="md-nav__link">
+    Networks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#completed-example" title="Completed Example" class="md-nav__link">
+    Completed Example
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../dockerignore/" title="Docker Ignore" class="md-nav__link">
+      Docker Ignore
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../env_file/" title="Env File" class="md-nav__link">
+      Env File
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#file-naming" title="File Naming" class="md-nav__link">
+    File Naming
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version" title="Version" class="md-nav__link">
+    Version
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#services" title="Services" class="md-nav__link">
+    Services
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#volumes" title="Volumes" class="md-nav__link">
+    Volumes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#simple-volumes" title="Simple Volumes" class="md-nav__link">
+    Simple Volumes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#persistent-volumes" title="Persistent Volumes" class="md-nav__link">
+    Persistent Volumes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#networks" title="Networks" class="md-nav__link">
+    Networks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#completed-example" title="Completed Example" class="md-nav__link">
+    Completed Example
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="docker-compose">Docker Compose</h1>
+<p>Docker Compose (aka docker-compose) is a simplified method to defining and configuring a whole Docker stack of services, allowing for quick configuration of not just single containers, but multiple containers/services, and their interactivity between each other.</p>
+<p>While all functionality of docker-compose can be re-created using only a <a href="../dockerfile/">Dockerfile</a> and manual commands or scripted shell script, a docker-compose file allows quick and simple configuration through a single yaml file per environment (e.g. dev, test, prod).</p>
+<p>Below we will go over the sections of docker-compose and how they're used, with a final completed sample at the end.</p>
+<p>Offial documentation on Docker Compose can be found on <a href="https://docs.docker.com/compose/">Docker's Docs site</a>.</p>
+<h2 id="file-naming">File Naming</h2>
+<p>Docker Compose by default, will always look for a <code>docker-compose.yml</code> file in the directory where it's commands are ran; if a standard file is found, Docker Compose will use that for executing given commands.</p>
+<p>This functionality enables users the option of either:</p>
+<ul>
+<li>
+<p>Define a standard file (<code>docker-compose.yml</code>) for a single environment and be Docker Compose ready for all commands</p>
+</li>
+<li>
+<p>or, Define multiple environments using variations of:</p>
+</li>
+<li><code>docker-compose.yml</code> for development</li>
+<li><code>docker-compose.test.yaml</code> for testing</li>
+<li><code>docker-compose.prod.yaml</code> for production</li>
+</ul>
+<p>By utilizing multiple configuration files for each environment, we are able to define custom settings (e.g. no web server needed during development), relevant variables (e.g. use test dataabse for testing), and services/containers (e.g. running a buidl/migration step for production).</p>
+<p>Example: Wanting to setup both, a development and production configuration separately, we will create:</p>
+<ul>
+<li><code>docker-compose.yml</code> for development</li>
+<li><code>docker-compose.prod.yml</code> for production</li>
+</ul>
+<h2 id="version">Version</h2>
+<p>The version keyword tells docker-compose what version of configurations we will be using. This helps with issues of using configurations, keywords, etc. that may have been used in earlier versions, but have since changed.</p>
+<p>The first line of our docker-compose file should always be the version keyword.</p>
+<p>Example: If we wanted to use version 3.7 (latest at the time of documentation), we would use:</p>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f92672">version</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;3.7&quot;</span>
+</pre></div>
+
+
+<h2 id="services">Services</h2>
+<div class="admonition warning">
+<p class="admonition-title">Services with ** require additional configuration variables defined on this page</p>
+<p>Certain service parameters like Persistent Volumes and Shared Netowrks require additional configuration outside of the Services section. Services with this identifier will have their own section in this document.</p>
+</div>
+<p>The services section is where we define all the containers that we want Docker to create and their configurations/relations.</p>
+<p>Each entry in the services section can have varying options and environment variables, which will be best defined on the core images' Dockerhub page.</p>
+<p>Below is a matrix of popular parameters for services and wether they're required for base functionality:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>container_name</td>
+<td>N</td>
+<td>random string</td>
+<td>Custom name for container; extremely useful to identify containers that belong to a stack.</td>
+</tr>
+<tr>
+<td>image</td>
+<td>Y</td>
+<td></td>
+<td>Image name to be used for container. This is replaced by <code>build</code> when using <code>Dockerfile</code> to build a custom image.</td>
+</tr>
+<tr>
+<td>build</td>
+<td>Y</td>
+<td></td>
+<td>Path to <a href="../dockerfile/">Dockerfile</a>. This is replaced by <code>image</code> when using pre-built imaged from Dockerhub</td>
+</tr>
+<tr>
+<td>restart</td>
+<td>N</td>
+<td>never</td>
+<td>Define if container should attempt to restart on fail or docker boot (e.g. system restart)</td>
+</tr>
+<tr>
+<td>environment</td>
+<td>N</td>
+<td></td>
+<td>Environment variables that should be passed into the container.</td>
+</tr>
+<tr>
+<td>ports</td>
+<td>N</td>
+<td></td>
+<td>Port mapping from local system to container</td>
+</tr>
+<tr>
+<td>volumes</td>
+<td>N</td>
+<td></td>
+<td>Docker Volume and local filesystem mapping into the container. Mapping a local directory to the container (e.g. <code>./src</code>) will ensure the files are always in-sync, in both directions, even while the container is running.</td>
+</tr>
+<tr>
+<td>networks</td>
+<td>N</td>
+<td></td>
+<td>Shared network mapping between containers.**</td>
+</tr>
+<tr>
+<td>command</td>
+<td>N</td>
+<td></td>
+<td>Custom command to be ran on container start/boot.**</td>
+</tr>
+</tbody>
+</table>
+<p>If we wanted to define:</p>
+<ul>
+<li>Node service that builds from our Dockerfile</li>
+<li>MySQL database from a pre-built image in Dockerhub</li>
+<li>Allow containers to communicate between each other</li>
+<li>Ensure our DB data persists even when containers are shutdown/destroyed</li>
+<li>Expose our Node service to our local system on port 80</li>
+</ul>
+<p>we would use:</p>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f92672">version</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;3.7&quot;</span>
+
+<span style="color: #f92672">services</span><span style="color: #f8f8f2">:</span>
+  <span style="color: #75715e"># our node application</span>
+  <span style="color: #f92672">node_app</span><span style="color: #f8f8f2">:</span>
+    <span style="color: #f92672">container_name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">node_web</span>            <span style="color: #75715e"># custom name for the container</span>
+    <span style="color: #f92672">build</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">.</span>                            <span style="color: #75715e"># use Dockerfile located project root</span>
+    <span style="color: #f92672">restart</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">unless-stopped</span>             <span style="color: #75715e"># always restart, unless manually stopped</span>
+    <span style="color: #f92672">environment</span><span style="color: #f8f8f2">:</span>                        <span style="color: #75715e"># define environment variables</span>
+      <span style="color: #f92672">NODE_ENVIRONMENT</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">dev</span>             
+    <span style="color: #f92672">ports</span><span style="color: #f8f8f2">:</span>                              <span style="color: #75715e"># map ports from local:container</span>
+      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">80:8000</span>                         
+    <span style="color: #f92672">volumes</span><span style="color: #f8f8f2">:</span>                            <span style="color: #75715e"># map our source code into container workdir</span>
+      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">./src:/code</span>                     
+    <span style="color: #f92672">networks</span><span style="color: #f8f8f2">:</span>                           <span style="color: #75715e"># use shared network between containers</span>
+      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">node_db_network</span>                 
+
+  <span style="color: #75715e"># mysql db for our node application</span>
+  <span style="color: #f92672">node_db</span><span style="color: #f8f8f2">:</span>
+    <span style="color: #f92672">container_name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">node_db</span>             <span style="color: #75715e"># custom name for the container</span>
+    <span style="color: #f92672">image</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">mysql:latest</span>                 <span style="color: #75715e"># name:version of pre-built image</span>
+    <span style="color: #f92672">restart</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">unless-stopped</span>             <span style="color: #75715e"># always restart, unless manually stopped</span>
+    <span style="color: #f92672">environment</span><span style="color: #f8f8f2">:</span>                        <span style="color: #75715e"># define environment variables</span>
+      <span style="color: #f92672">MYSQL_ROOT_PASSWORD</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">root_pwd</span>     
+      <span style="color: #f92672">MYSQL_DATABASE</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">app_db</span>            
+      <span style="color: #f92672">MYSQL_USER</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">db_admin</span>              
+      <span style="color: #f92672">MYSQL_PASSWORD</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">db_admin_pwd</span>      
+    <span style="color: #f92672">volumes</span><span style="color: #f8f8f2">:</span>                            <span style="color: #75715e"># map persistent volume to DB store</span>
+      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">node_db_volume:/var/lib/mysql</span>   
+    <span style="color: #f92672">networks</span><span style="color: #f8f8f2">:</span>                           <span style="color: #75715e"># use shared network between containers</span>
+      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">node_db_network</span>                 
+</pre></div>
+
+
+<h2 id="volumes">Volumes</h2>
+<p>In docker-compose, volumes can be used to: </p>
+<ul>
+<li>Create simple mappings of local code/config directories into the container,</li>
+<li>Map local directories to sync and retain data from within the container,</li>
+<li>Define Persistent Volumes that are named and kept even when containers are shutdown/recreated.</li>
+</ul>
+<h3 id="simple-volumes">Simple Volumes</h3>
+<p>In our examples we use a simple mapping to map our <code>./src</code> directory into the container <code>/code</code> work directory, which ensures our source code is always in-sync, allowing us to make live edits to code while the containers are running.</p>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f92672">volumes</span><span style="color: #f8f8f2">:</span>
+  <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">./src:/code</span>
+</pre></div>
+
+
+<h3 id="persistent-volumes">Persistent Volumes</h3>
+<p>For our database however, we do not have pre-existing data that we would want MySQL to use; instead, we would like to persist our data that is created once our application and database are up and running in Docker.</p>
+<p>To achieve this, we will map out network similar to a Simple Volume, but add a separate configuration outside of the Services section:</p>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #75715e"># our usual services definition, where we </span>
+<span style="color: #75715e"># map our persistent volume to the container</span>
+<span style="color: #f92672">services</span><span style="color: #f8f8f2">:</span>
+  <span style="color: #f92672">node_db</span><span style="color: #f8f8f2">:</span>
+    <span style="color: #ae81ff">...</span>
+    <span style="color: #ae81ff">volumes</span><span style="color: #f8f8f2">:</span>
+      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">node_db_network</span>
+
+<span style="color: #75715e"># persistent volume definition</span>
+<span style="color: #f92672">volumes</span><span style="color: #f8f8f2">:</span>
+  <span style="color: #f92672">node_db_network</span><span style="color: #f8f8f2">:</span>
+</pre></div>
+
+
+<h2 id="networks">Networks</h2>
+<p>While we do define and expose ports on the individual containers to our local system, there are cases where we want certain containers to communicate with each other, and only each other.</p>
+<p>To achieve this, we create named networks and then define which containers have access to them.</p>
+<p>If we wanted to let our node_web container communicate with the database in node_db container, without exposing it to our local system, we would use:</p>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #75715e"># our usual services definition, where we map our </span>
+<span style="color: #75715e"># named network to the containers that are allowed to use it</span>
+<span style="color: #f92672">services</span><span style="color: #f8f8f2">:</span>
+  <span style="color: #f92672">node_web</span><span style="color: #f8f8f2">:</span>
+    <span style="color: #ae81ff">...</span>
+    <span style="color: #ae81ff">networks</span><span style="color: #f8f8f2">:</span>
+      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">node_db_network</span> 
+  <span style="color: #f92672">node_db</span><span style="color: #f8f8f2">:</span>
+    <span style="color: #ae81ff">...</span>
+    <span style="color: #ae81ff">networks</span><span style="color: #f8f8f2">:</span>
+      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">node_db_network</span> 
+
+<span style="color: #75715e"># named network definition</span>
+<span style="color: #f92672">networks</span><span style="color: #f8f8f2">:</span>
+  <span style="color: #f92672">node_db_network</span><span style="color: #f8f8f2">:</span>
+</pre></div>
+
+
+<h2 id="completed-example">Completed Example</h2>
+<div class="codehilite" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f92672">version</span><span style="color: #f8f8f2">:</span> <span style="color: #e6db74">&quot;3.7&quot;</span>
+
+<span style="color: #f92672">services</span><span style="color: #f8f8f2">:</span>
+  <span style="color: #75715e"># our node application</span>
+  <span style="color: #f92672">node_app</span><span style="color: #f8f8f2">:</span>
+    <span style="color: #f92672">container_name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">node_web</span>            <span style="color: #75715e"># custom name for the container</span>
+    <span style="color: #f92672">build</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">.</span>                            <span style="color: #75715e"># use Dockerfile located project root</span>
+    <span style="color: #f92672">restart</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">unless-stopped</span>             <span style="color: #75715e"># always restart, unless manually stopped</span>
+    <span style="color: #f92672">environment</span><span style="color: #f8f8f2">:</span>                        <span style="color: #75715e"># define environment variables</span>
+      <span style="color: #f92672">NODE_ENVIRONMENT</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">dev</span>             
+    <span style="color: #f92672">ports</span><span style="color: #f8f8f2">:</span>                              <span style="color: #75715e"># map ports from local:container</span>
+      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">80:8000</span>                         
+    <span style="color: #f92672">volumes</span><span style="color: #f8f8f2">:</span>                            <span style="color: #75715e"># map our source code into container workdir</span>
+      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">./src:/code</span>                     
+    <span style="color: #f92672">networks</span><span style="color: #f8f8f2">:</span>                           <span style="color: #75715e"># use shared network between containers</span>
+      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">node_db_network</span>                 
+
+  <span style="color: #75715e"># mysql db for our node application</span>
+  <span style="color: #f92672">node_db</span><span style="color: #f8f8f2">:</span>
+    <span style="color: #f92672">container_name</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">node_db</span>             <span style="color: #75715e"># custom name for the container</span>
+    <span style="color: #f92672">image</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">mysql:latest</span>                 <span style="color: #75715e"># name:version of pre-built image</span>
+    <span style="color: #f92672">restart</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">unless-stopped</span>             <span style="color: #75715e"># always restart, unless manually stopped</span>
+    <span style="color: #f92672">environment</span><span style="color: #f8f8f2">:</span>                        <span style="color: #75715e"># define environment variables</span>
+      <span style="color: #f92672">MYSQL_ROOT_PASSWORD</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">root_pwd</span>     
+      <span style="color: #f92672">MYSQL_DATABASE</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">app_db</span>            
+      <span style="color: #f92672">MYSQL_USER</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">db_admin</span>              
+      <span style="color: #f92672">MYSQL_PASSWORD</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">db_admin_pwd</span>      
+    <span style="color: #f92672">volumes</span><span style="color: #f8f8f2">:</span>                            <span style="color: #75715e"># map persistent volume to DB store</span>
+      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">node_db_volume:/var/lib/mysql</span>   
+    <span style="color: #f92672">networks</span><span style="color: #f8f8f2">:</span>                           <span style="color: #75715e"># use shared network between containers</span>
+      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">node_db_network</span>
+
+<span style="color: #75715e"># persistent volume definition</span>
+<span style="color: #f92672">volumes</span><span style="color: #f8f8f2">:</span>
+  <span style="color: #f92672">node_db_network</span><span style="color: #f8f8f2">:</span>
+
+<span style="color: #75715e"># named network definition</span>
+<span style="color: #f92672">networks</span><span style="color: #f8f8f2">:</span>
+  <span style="color: #f92672">node_db_network</span><span style="color: #f8f8f2">:</span>
+</pre></div>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../dockerfile/" title="Dockerfile" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Dockerfile
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../dockerignore/" title="Docker Ignore" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Docker Ignore
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.245445c6.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+    
+  </body>
+</html>
